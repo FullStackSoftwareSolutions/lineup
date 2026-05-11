@@ -10,7 +10,7 @@ services:
       WHATSAPP_TRPC_URL: http://whatsapp:3333
       WHATSAPP_TRPC_PORT: 3333
       DB_USER: postgres
-      DB_PASSWORD: y7FswrQHkWTSekEb
+      DB_PASSWORD: REPLACE_WITH_DB_PASSWORD
       DB_HOST: db
       DB_NAME: ntrbot
     networks:
@@ -29,11 +29,11 @@ services:
       WHATSAPP_TRPC_URL: http://whatsapp:3333
       WHATSAPP_TRPC_PORT: 3333
       DB_USER: postgres
-      DB_PASSWORD: y7FswrQHkWTSekEb
+      DB_PASSWORD: REPLACE_WITH_DB_PASSWORD
       DB_HOST: db
       DB_NAME: ntrbot
-      OPENAI_ORG_ID: org-av7OXkHawvIZhfHuSDOfCaNP
-      OPENAI_API_KEY: sk-proj-eR6sCxdx8xi6ZBQyI1xmT3BlbkFJKdSRHE31vVt8d8dRLl15
+      OPENAI_ORG_ID: REPLACE_WITH_OPENAI_ORG_ID
+      OPENAI_API_KEY: REPLACE_WITH_OPENAI_API_KEY
       TZ: America/Toronto
     expose:
       - 3333
@@ -51,7 +51,7 @@ services:
       - /home/josh/ntr-bot/postgres:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=ntrbot
-      - POSTGRES_PASSWORD=y7FswrQHkWTSekEb
+      - POSTGRES_PASSWORD=REPLACE_WITH_DB_PASSWORD
       - POSTGRES_USER=postgres
     expose:
       - 5432
@@ -70,7 +70,7 @@ services:
   #       root: ./
   #   environment:
   #     DB_USER: postgres
-  #     DB_PASSWORD: y7FswrQHkWTSekEb
+  #     DB_PASSWORD: REPLACE_WITH_DB_PASSWORD
   #     DB_HOST: db
   #     DB_NAME: ntrbot
   #   networks:
