@@ -2,7 +2,7 @@
 
 ### Issue tracker
 
-Issues and PRDs live in GitHub Issues at FullStackSoftwareSolutions/ntr-bot, managed via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+Issues and PRDs live in GitHub Issues at FullStackSoftwareSolutions/lineup, managed via the `gh` CLI. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 

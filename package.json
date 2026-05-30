@@ -1,10 +1,11 @@
 {
-  "name": "ntr-bot",
+  "name": "lineup",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "type": "tsc --noEmit"
+    "type": "tsc --noEmit",
+    "install:all": "npm install && npm --prefix ./db install && npm --prefix ./formatting install && npm --prefix ./native install && npm --prefix ./next install && npm --prefix ./whatsapp install"
   },
   "imports": {
     "@db/*": "./db/src/*",

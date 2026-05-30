@@ -75,7 +75,7 @@ export const connect = async () => {
       keys: makeCacheableSignalKeyStore(authState.keys, logger),
     },
     logger: logger,
-    browser: [process.env.WHATS_APP_LINKED_DEVICE_NAME ?? "NTR Bot", "", ""],
+    browser: [process.env.WHATS_APP_LINKED_DEVICE_NAME ?? "Lineup", "", ""],
     syncFullHistory: false,
     generateHighQualityLinkPreview: true,
     getMessage,

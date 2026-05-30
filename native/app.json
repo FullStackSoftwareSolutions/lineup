@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ntr-bot",
-    "slug": "ntr-bot",
+    "name": "lineup",
+    "slug": "lineup",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

@@ -9,8 +9,8 @@ import { SessionProvider } from "@next/providers/SessionProvier";
 import { Toaster } from "sonner";
 
 export const metadata = {
-  title: "ntr bot",
-  description: "beep boop",
+  title: "Lineup",
+  description: "Pickup hockey, organized.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 

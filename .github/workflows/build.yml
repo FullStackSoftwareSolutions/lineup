@@ -30,7 +30,7 @@ jobs:
           build-contexts: |
             root=./
           push: true
-          tags: joshkay/ntrbot-next:latest
+          tags: joshkay/lineup-next:latest
   docker-whatsapp:
     runs-on: ubuntu-latest
     env:
@@ -54,7 +54,7 @@ jobs:
           build-contexts: |
             root=./
           push: true
-          tags: joshkay/ntrbot-whatsapp:latest
+          tags: joshkay/lineup-whatsapp:latest
   docker-studio:
     runs-on: ubuntu-latest
     env:
@@ -78,4 +78,4 @@ jobs:
           build-contexts: |
             root=./
           push: true
-          tags: joshkay/ntrbot-studio:latest
+          tags: joshkay/lineup-studio:latest

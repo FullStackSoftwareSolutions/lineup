@@ -54,7 +54,7 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : LightTheme}>
       <Stack
         screenOptions={{
-          headerTitle: "🏒 NTR Bot",
+          headerTitle: "🏒 Lineup",
           presentation: "transparentModal",
         }}
       >

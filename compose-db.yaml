@@ -1,26 +1,33 @@
+name: lineup
+
 services:
   db:
-    image: postgres
+    # Pinned: matches db/ntrbot.sql dump (pg 16.2). Postgres 18+ changed the
+    # data dir layout and won't init against the existing mount point.
+    image: postgres:16
     restart: always
     user: postgres
     volumes:
       - dbdata:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=ntrbot
-      - POSTGRES_PASSWORD=test123
-      - POSTGRES_USER=josh
+      # Mapped from the canonical DB_* vars in repo-root /.env
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_USER=${DB_USER}
     ports:
-      - "5432:5432"
+      # Host 5433 → container 5432 (avoids collision with other local pg instances).
+      # Keep host port in sync with DB_PORT in /.env.
+      - "5433:5432"
     healthcheck:
       test: ["CMD", "pg_isready"]
       interval: 10s
       timeout: 5s
       retries: 5
     networks:
-      - ntr-bot
+      - lineup
 
 networks:
-  ntr-bot:
+  lineup:
 
 volumes:
   dbdata:

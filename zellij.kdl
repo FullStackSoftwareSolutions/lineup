@@ -10,22 +10,22 @@ layout {
     }
     tab name="next" focus=true {
         pane command="C:/Program Files/Git/bin/bash.exe" {
-            args "-lic" "cd /c/Users/joshm/Development/ntr-bot/next && npm run dev; exec bash"
+            args "-lic" "cd /c/Users/joshm/Development/lineup/next && npm run dev; exec bash"
         }
     }
     tab name="whatsapp" {
         pane command="C:/Program Files/Git/bin/bash.exe" {
-            args "-lic" "cd /c/Users/joshm/Development/ntr-bot/whatsapp && npm start; exec bash"
+            args "-lic" "cd /c/Users/joshm/Development/lineup/whatsapp && npm start; exec bash"
         }
     }
     tab name="commands" {
         pane command="C:/Program Files/Git/bin/bash.exe" {
-            args "-lic" "cd /c/Users/joshm/Development/ntr-bot && exec bash"
+            args "-lic" "cd /c/Users/joshm/Development/lineup && exec bash"
         }
     }
     tab name="claude" {
         pane command="C:/Program Files/Git/bin/bash.exe" {
-            args "-lic" "cd /c/Users/joshm/Development/ntr-bot && claude; exec bash"
+            args "-lic" "cd /c/Users/joshm/Development/lineup && claude; exec bash"
         }
     }
 }

@@ -37,7 +37,7 @@ const Sidebar = () => {
       </SheetTrigger>
       <SheetContent side="left" className="p-6">
         <Link href="/" onClick={() => setOpen(false)}>
-          🤖 ntr bot
+          🏒 Lineup
         </Link>
 
         <h2 className="mt-8 mb-2 px-4 text-lg font-semibold tracking-tight">

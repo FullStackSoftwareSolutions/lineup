@@ -1,44 +1,49 @@
 version: "3.7"
+name: lineup
 services:
   next:
-    container_name: ntrbot-next
-    image: joshkay/ntrbot-next
+    container_name: lineup-next
+    image: joshkay/lineup-next
     restart: unless-stopped
     ports:
       - "9916:3000"
     environment:
       WHATSAPP_TRPC_URL: http://whatsapp:3333
       WHATSAPP_TRPC_PORT: 3333
-      DB_USER: postgres
-      DB_PASSWORD: REPLACE_WITH_DB_PASSWORD
+      # DB_* interpolated from repo-root /.env. DB_HOST hardcoded to the
+      # compose service name since localhost is not reachable across containers.
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
       DB_HOST: db
-      DB_NAME: ntrbot
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME}
     networks:
-      - ntr-bot
+      - lineup
     # depends_on:
     #   db:
     #     condition: service_healthy
 
   whatsapp:
-    container_name: ntrbot-whatsapp
-    image: joshkay/ntrbot-whatsapp
+    container_name: lineup-whatsapp
+    image: joshkay/lineup-whatsapp
     restart: unless-stopped
     volumes:
       - /home/josh/ntr-bot/state:/usr/src/app/whatsapp/state
     environment:
       WHATSAPP_TRPC_URL: http://whatsapp:3333
       WHATSAPP_TRPC_PORT: 3333
-      DB_USER: postgres
-      DB_PASSWORD: REPLACE_WITH_DB_PASSWORD
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
       DB_HOST: db
-      DB_NAME: ntrbot
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME}
       OPENAI_ORG_ID: REPLACE_WITH_OPENAI_ORG_ID
       OPENAI_API_KEY: REPLACE_WITH_OPENAI_API_KEY
       TZ: America/Toronto
     expose:
       - 3333
     networks:
-      - ntr-bot
+      - lineup
     # depends_on:
     #   migration:
     #     condition: service_completed_successfully
@@ -50,9 +55,9 @@ services:
     volumes:
       - /home/josh/ntr-bot/postgres:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=ntrbot
-      - POSTGRES_PASSWORD=REPLACE_WITH_DB_PASSWORD
-      - POSTGRES_USER=postgres
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_USER=${DB_USER}
     expose:
       - 5432
     healthcheck:
@@ -61,7 +66,7 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - ntr-bot
+      - lineup
 
   # migration:
   #   build:
@@ -69,15 +74,16 @@ services:
   #     additional_contexts:
   #       root: ./
   #   environment:
-  #     DB_USER: postgres
-  #     DB_PASSWORD: REPLACE_WITH_DB_PASSWORD
+  #     DB_USER: ${DB_USER}
+  #     DB_PASSWORD: ${DB_PASSWORD}
   #     DB_HOST: db
-  #     DB_NAME: ntrbot
+  #     DB_PORT: 5432
+  #     DB_NAME: ${DB_NAME}
   #   networks:
-  #     - ntr-bot
+  #     - lineup
   #   depends_on:
   #     db:
   #       condition: service_healthy
 
 networks:
-  ntr-bot:
+  lineup:

@@ -27,7 +27,7 @@ const Navbar = () => {
         <SignedIn>
           <Sidebar />
         </SignedIn>
-        <Link href="/">🤖 ntr bot</Link>
+        <Link href="/">🏒 Lineup</Link>
         <div className="ml-auto flex items-center gap-2">
           <DarkModeModeToggle />
           <SignedOut>
