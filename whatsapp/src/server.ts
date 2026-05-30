@@ -1,4 +1,4 @@
-import "dotenv/config";
+import "./env";
 import { initializeBot } from "./bot";
 import { connectToWhatsapp } from "./features/whatsapp/whatsapp.controller";
 import { createHTTPServer } from "@trpc/server/adapters/standalone";

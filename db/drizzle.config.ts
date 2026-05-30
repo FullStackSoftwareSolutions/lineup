@@ -1,5 +1,9 @@
-import "dotenv/config";
+import { config as loadDotenv } from "dotenv";
+import { fileURLToPath } from "node:url";
 import type { Config } from "drizzle-kit";
+
+// Load canonical DB env from repo root regardless of cwd.
+loadDotenv({ path: fileURLToPath(new URL("../.env", import.meta.url)) });
 
 export default {
   schema: "./src/db/schema.ts",

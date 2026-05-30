@@ -4,8 +4,9 @@ import * as schema from "./schema";
 import { SQL, sql } from "drizzle-orm";
 import { PgColumn } from "drizzle-orm/pg-core";
 
+const dbPort = process.env.DB_PORT ?? "5432";
 export const connection = postgres(
-  `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`
+  `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${dbPort}/${process.env.DB_NAME}`
 );
 export const db = drizzle(connection, { schema });
 
