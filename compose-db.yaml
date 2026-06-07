@@ -2,7 +2,7 @@ name: lineup
 
 services:
   db:
-    # Pinned: matches db/ntrbot.sql dump (pg 16.2). Postgres 18+ changed the
+    # Pinned: matches db/lineup.sql dump (pg 16.2). Postgres 18+ changed the
     # data dir layout and won't init against the existing mount point.
     image: postgres:16
     restart: always

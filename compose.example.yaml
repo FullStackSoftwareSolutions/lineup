@@ -28,7 +28,7 @@ services:
     image: joshkay/lineup-whatsapp
     restart: unless-stopped
     volumes:
-      - /home/josh/ntr-bot/state:/usr/src/app/whatsapp/state
+      - /home/josh/lineup/state:/usr/src/app/whatsapp/state
     environment:
       WHATSAPP_TRPC_URL: http://whatsapp:3333
       WHATSAPP_TRPC_PORT: 3333
@@ -53,7 +53,7 @@ services:
     restart: unless-stopped
     user: postgres
     volumes:
-      - /home/josh/ntr-bot/postgres:/var/lib/postgresql/data
+      - /home/josh/lineup/postgres:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=${DB_NAME}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
