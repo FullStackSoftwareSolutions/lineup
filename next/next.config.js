@@ -9,9 +9,13 @@
  * OPENAI_*GITHUB_* values. So snapshot the next/ vars, force-load root for the
  * DB_* keys, then merge the snapshot back on top.
  */
-import nextEnv from "@next/env";
 import { fileURLToPath } from "node:url";
-const { loadEnvConfig } = nextEnv;
+import { createRequire } from "node:module";
+// NB: import the real `@next/env` package at runtime. A static `import ... from
+// "@next/env"` is hijacked by the tsconfig `@next/*` -> `src/*` path alias and
+// resolves to ./src/env (no default export), breaking `next build`'s type check.
+// createRequire resolves the actual node_modules package and types it as `any`.
+const { loadEnvConfig } = createRequire(import.meta.url)("@next/env");
 
 const nextDirEnv = { ...process.env };
 loadEnvConfig(fileURLToPath(new URL("..", import.meta.url)), undefined, undefined, true);
